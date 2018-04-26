@@ -1,6 +1,6 @@
 var orm = require("../config/orm.js");
 
-var burger = {
+var burgers = {
   all: function(cb) {
     orm.selectAll ("burgers", function (res) {
       cb(res);
@@ -14,6 +14,11 @@ var burger = {
   update: function(objColVals, condition, cb) {
     orm.updateOne ("burgers", objColVals, condition, function(res) {
       cd(res);
+    });
+  },
+  delete: function(condition, cb) {
+    orm.delete("burgers", condition, function(res) {
+      cb(res);
     });
   }
 };
